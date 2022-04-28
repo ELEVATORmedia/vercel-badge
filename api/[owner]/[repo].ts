@@ -27,7 +27,8 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
   )
     style = req.query.style;
 
-    console.log('')
+  console.log(owner);
+  console.log(repo);
   axios
     .get(`https://api.github.com/repos/${owner}/${repo}/deployments`, {
       headers: {
