@@ -27,8 +27,6 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
   )
     style = req.query.style;
 
-  console.log(owner);
-  console.log(repo);
   axios
     .get(`https://api.github.com/repos/${owner}/${repo}/deployments`, {
       headers: {
@@ -96,6 +94,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
         });
     })
     .catch((error) => {
+      console.log(error);
       res.setHeader("Content-Type", "image/svg+xml");
       return fs
         .createReadStream(
